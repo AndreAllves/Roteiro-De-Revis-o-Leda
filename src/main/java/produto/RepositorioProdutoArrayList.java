@@ -40,8 +40,7 @@ public class RepositorioProdutoArrayList {
 	 * @return
 	 */
 	private int procurarIndice(int codigo) {
-		// TODO Implement your code here
-		throw new UnsupportedOperationException("Not implemented yet!");
+		return this.produtos.indexOf(this.produtos.get(codigo));
 	}
 
 	/**
@@ -51,16 +50,14 @@ public class RepositorioProdutoArrayList {
 	 * @return
 	 */
 	public boolean existe(int codigo) {
-		// TODO Implement your code here
-		throw new UnsupportedOperationException("Not implemented yet!");
+		return this.produtos.contains(this.produtos.get(codigo));
 	}
 
 	/**
 	 * Insere um novo produto (sem se preocupar com duplicatas)
 	 */
 	public void inserir(Produto produto) {
-		// TODO Implement your code here
-		throw new UnsupportedOperationException("Not implemented yet!");
+		this.produtos.add(produto);
 	}
 
 	/**
@@ -69,8 +66,10 @@ public class RepositorioProdutoArrayList {
 	 * utilizado.
 	 */
 	public void atualizar(Produto produto) {
-		// TODO Implement your code here
-		throw new UnsupportedOperationException("Not implemented yet!");
+		if(!this.produtos.contains(produto)){
+			throw new IllegalArgumentException("Produto Inexistente!");
+		}
+		this.produtos.add(this.produtos.indexOf(produto), produto);
 	}
 
 	/**
@@ -80,10 +79,13 @@ public class RepositorioProdutoArrayList {
 	 * 
 	 * @param codigo
 	 */
-	public void remover(int codigo) {
-		// TODO Implement your code here
-		throw new UnsupportedOperationException("Not implemented yet!");
+	public void remover(int codigo){
+		if(!(this.produtos.contains(this.produtos.get(codigo)))) {
+			throw new IllegalArgumentException("Produto inexistente!");
+		}
+		this.produtos.remove(codigo);
 	}
+	
 
 	/**
 	 * Retorna um produto com determinado codigo ou entao um erro, caso o
@@ -93,7 +95,10 @@ public class RepositorioProdutoArrayList {
 	 * @return
 	 */
 	public Produto procurar(int codigo) {
-		// TODO Implement your code here
-		throw new UnsupportedOperationException("Not implemented yet!");
+		if(!this.produtos.contains(this.produtos.get(codigo))){
+			throw new IllegalArgumentException("Produto inexistente!");
+		}
+
+		return (Produto) this.produtos.get(codigo);
 	}
 }
