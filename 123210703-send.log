@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2024-11-28T07:19:12.269-0300</date>
+  <logger>ANDRE VICTOR CIRINO ALVES</logger>
+  <level>FINE</level>
+  <message>File 123210703-ANDRE VICTOR CIRINO ALVES.zip was received. It was sent by ANDRE VICTOR CIRINO ALVES from IP 192.168.48.123 at 28-11-2024 07*19*12</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2024-11-29T09:49:00.661-0300</date>
+  <logger>ANDRE VICTOR CIRINO ALVES</logger>
+  <level>FINE</level>
+  <message>File 123210703-ANDRE VICTOR CIRINO ALVES.zip was received. It was sent by ANDRE VICTOR CIRINO ALVES from IP 150.165.74.79 at 29-11-2024 09*49*00</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2024-11-29T10:12:59.947-0300</date>
+  <logger>ANDRE VICTOR CIRINO ALVES</logger>
+  <level>FINE</level>
+  <message>File 123210703-ANDRE VICTOR CIRINO ALVES.zip was received. It was sent by ANDRE VICTOR CIRINO ALVES from IP 150.165.74.80 at 29-11-2024 10*12*59</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2024-12-03T09:00:11.221-0300</date>
+  <logger>ANDRE VICTOR CIRINO ALVES</logger>
+  <level>FINE</level>
+  <message>File 123210703-ANDRE VICTOR CIRINO ALVES.zip was received. It was sent by ANDRE VICTOR CIRINO ALVES from IP 150.165.74.108 at 03-12-2024 09*00*11</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2024-12-03T09:13:43.062-0300</date>
+  <logger>ANDRE VICTOR CIRINO ALVES</logger>
+  <level>FINE</level>
+  <message>File 123210703-ANDRE VICTOR CIRINO ALVES.zip was received. It was sent by ANDRE VICTOR CIRINO ALVES from IP 150.165.74.108 at 03-12-2024 09*13*43</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2024-12-03T21:35:40.311-0300</date>
+  <logger>ANDRE VICTOR CIRINO ALVES</logger>
+  <level>FINE</level>
+  <message>File 123210703-ANDRE VICTOR CIRINO ALVES.zip was received. It was sent by ANDRE VICTOR CIRINO ALVES from IP 192.168.1.104 at 03-12-2024 21*35*40</message>
+</record>

@@ -41,12 +41,14 @@ public class RepositorioProdutoNaoPerecivelArray {
 	 * @return
 	 */
 	private int procurarIndice(int codigo) {
-		for(int i = 0; i < this.produtos.length; i++){
-			if(this.produtos[i] != null && this.produtos[i].getCodigo() == codigo){
-				return i;
-			}
+
+		for (int i = 0; i < this.produtos.length; i++) {
+			if (this.produtos[i].getCodigo() == codigo) return i;
 		}
+
 		return -1;
+		// TODO Implement your code here
+		//throw new UnsupportedOperationException("Not implemented yet!");
 	}
 
 	/**
@@ -56,24 +58,21 @@ public class RepositorioProdutoNaoPerecivelArray {
 	 * @return
 	 */
 	public boolean existe(int codigo) {
-		for(int i = 0; i < this.produtos.length; i++){
-			if(this.produtos[i] != null && this.produtos[i].getCodigo() == codigo){
-				return true;
-			}
-		}
-		return false;
+		
+		if (procurarIndice(codigo) == -1) return false;
+		return true; 
+		//throw new UnsupportedOperationException("Not implemented yet!");
 	}
 
 	/**
 	 * Insere um novo produto (sem se preocupar com duplicatas)
 	 */
 	public void inserir(ProdutoNaoPerecivel produto) {
-		for(int i = 0; i < this.produtos.length ;i++){
-			if(this.produtos[i] == null && produto != null){
-				this.produtos[i] = produto;
-			}
-		}
-		throw new IllegalArgumentException("Produto não adicionado!");
+
+		this.index++;
+		this.produtos[this.index] = produto;
+		// TODO Implement your code here
+		//throw new UnsupportedOperationException("Not implemented yet!");
 	}
 
 	/**
@@ -82,7 +81,19 @@ public class RepositorioProdutoNaoPerecivelArray {
 	 * utilizado.
 	 */
 	public void atualizar(ProdutoNaoPerecivel produto) {
-		this.produtos[procurarIndice(produto.getCodigo())] = produto;
+
+		boolean achou = false;
+		for (int i = 0; i < this.produtos.length; i++) {
+			if (this.produtos[i].equals(produto)) {
+				this.produtos[i] = produto;
+				achou = true;
+				break;
+			}
+		}
+
+		if (!achou) new IllegalArgumentException("Produto não existente");
+		// TODO Implement your code here
+		//throw new UnsupportedOperationException("Not implemented yet!");
 	}
 
 	/**
@@ -93,8 +104,18 @@ public class RepositorioProdutoNaoPerecivelArray {
 	 * @param codigo
 	 */
 	public void remover(int codigo) {
-		// TODO Implement your code here
-		throw new UnsupportedOperationException("Not implemented yet!");
+		
+		int pos = procurarIndice(codigo);
+		if (pos == -1) new IllegalArgumentException("Produto não existente");
+		
+		this.produtos[pos] = null;
+		for(int i = pos; i < this.produtos.length; i++) {
+			this.produtos[pos] = this.produtos[pos+1];
+			this.produtos[pos+1] = this.produtos[pos];
+		}
+
+		this.index--;
+		//throw new UnsupportedOperationException("Not implemented yet!");
 	}
 
 	/**
@@ -105,8 +126,15 @@ public class RepositorioProdutoNaoPerecivelArray {
 	 * @return
 	 */
 	public ProdutoNaoPerecivel procurar(int codigo) {
+
+		int i = this.procurarIndice(codigo);
+		if (i != -1) {
+			return this.produtos[i];
+		} else {
+			return null;
+		}
 		// TODO Implement your code here
-		throw new UnsupportedOperationException("Not implemented yet!");
+		//throw new UnsupportedOperationException("Not implemented yet!");
 	}
 
 }
