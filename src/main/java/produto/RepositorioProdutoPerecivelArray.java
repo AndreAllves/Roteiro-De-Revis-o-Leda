@@ -14,7 +14,7 @@ package produto;
  * @author Adalberto
  *
  */
-public class RepositorioProdutoPerecivelArray {
+public class RepositorioProdutoPerecivelArray implements RepositorioProdutos {
 
 	/**
 	 * A estrutura (array) onde os produtos sao mantidos.
@@ -40,17 +40,7 @@ public class RepositorioProdutoPerecivelArray {
 	 * 
 	 * @param codigo
 	 * @return
-	 */
-	private int procurarIndice(int codigo) {
-
-		for (int i = 0; i < this.produtos.length; i++) {
-			if (this.produtos[i].getCodigo() == codigo) return i;
-		}
-
-		return -1;
-		// TODO Implement your code here
-		//throw new UnsupportedOperationException("Not implemented yet!");
-	}
+	 *
 
 	/**
 	 * Recebe o codigo e diz se tem produto com esse codigo armazenado
@@ -58,23 +48,30 @@ public class RepositorioProdutoPerecivelArray {
 	 * @param codigo
 	 * @return
 	 */
+	@Override
+	public int procurarIndice(int codigo) {
+		for (int i = 0; i < this.produtos.length; i++) {
+			if (this.produtos[i].getCodigo() == codigo) return i;
+		}
+	
+		return -1;
+	}
+
+	@Override
 	public boolean existe(int codigo) {
 
 		if (procurarIndice(codigo) == -1) return false;
 		return true; 
-		// TODO Implement your code here
-		//throw new UnsupportedOperationException("Not implemented yet!");
 	}
-
+	
 	/**
 	 * Insere um novo produto (sem se preocupar com duplicatas)
 	 */
-	public void inserir(ProdutoPerecivel produto) {
-
+	
+	@Override
+	public void inserir(Produto produto) {
 		this.index++;
-		this.produtos[this.index] = produto;
-		// TODO Implement your code here
-		//throw new UnsupportedOperationException("Not implemented yet!");
+		this.produtos[this.index] = (ProdutoPerecivel) produto;
 	}
 
 	/**
@@ -82,20 +79,19 @@ public class RepositorioProdutoPerecivelArray {
 	 * esteja no array. Note que, para localizacao, o código do produto será
 	 * utilizado.
 	 */
-	public void atualizar(ProdutoPerecivel produto) {
-
-		boolean achou = false;
+	
+	@Override
+	public void atualizar(Produto produto) {
+		Boolean achou = false;
 		for (int i = 0; i < this.produtos.length; i++) {
 			if (this.produtos[i].equals(produto)) {
-				this.produtos[i] = produto;
+				this.produtos[i] = (ProdutoPerecivel) produto;
 				achou = true;
 				break;
 			}
 		}
 
 		if (!achou) new IllegalArgumentException("Produto não existente");
-		// TODO Implement your code here
-		//throw new UnsupportedOperationException("Not implemented yet!");
 	}
 
 	/**
@@ -105,6 +101,7 @@ public class RepositorioProdutoPerecivelArray {
 	 * 
 	 * @param codigo
 	 */
+	@Override
 	public void remover(int codigo) {
 
 		int pos = procurarIndice(codigo);
@@ -117,8 +114,6 @@ public class RepositorioProdutoPerecivelArray {
 		}
 
 		this.index--;
-		// TODO Implement your code here
-		//throw new UnsupportedOperationException("Not implemented yet!");
 	}
 
 	/**
@@ -128,6 +123,7 @@ public class RepositorioProdutoPerecivelArray {
 	 * @param codigo
 	 * @return
 	 */
+	@Override
 	public ProdutoPerecivel procurar(int codigo) {
 
 		int i = this.procurarIndice(codigo);
@@ -136,7 +132,7 @@ public class RepositorioProdutoPerecivelArray {
 		} else {
 			return null;
 		}
-		// TODO Implement your code here
-		//throw new UnsupportedOperationException("Not implemented yet!");
 	}
+
+
 }

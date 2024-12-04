@@ -14,7 +14,7 @@ package produto;
  * @author Adalberto
  *
  */
-public class RepositorioProdutoNaoPerecivelArray {
+public class RepositorioProdutoNaoPerecivelArray implements RepositorioProdutos {
 	/**
 	 * A estrutura (array) onde os produtos sao mantidos.
 	 */
@@ -40,23 +40,23 @@ public class RepositorioProdutoNaoPerecivelArray {
 	 * @param codigo
 	 * @return
 	 */
-	private int procurarIndice(int codigo) {
-
+	@Override
+	public int procurarIndice(int codigo) {
 		for (int i = 0; i < this.produtos.length; i++) {
 			if (this.produtos[i].getCodigo() == codigo) return i;
 		}
-
+	
 		return -1;
-		// TODO Implement your code here
-		//throw new UnsupportedOperationException("Not implemented yet!");
 	}
-
+	
+	
 	/**
 	 * Recebe o codigo e diz se tem produto com esse codigo armazenado
 	 * 
 	 * @param codigo
 	 * @return
 	 */
+	@Override
 	public boolean existe(int codigo) {
 		
 		if (procurarIndice(codigo) == -1) return false;
@@ -67,35 +67,30 @@ public class RepositorioProdutoNaoPerecivelArray {
 	/**
 	 * Insere um novo produto (sem se preocupar com duplicatas)
 	 */
-	public void inserir(ProdutoNaoPerecivel produto) {
-
+	@Override
+	public void inserir(Produto produto) {
 		this.index++;
-		this.produtos[this.index] = produto;
-		// TODO Implement your code here
-		//throw new UnsupportedOperationException("Not implemented yet!");
+		this.produtos[this.index] = (ProdutoNaoPerecivel) produto;
 	}
-
+	
 	/**
 	 * Atualiza um produto armazenado ou retorna um erro caso o produto nao
 	 * esteja no array. Note que, para localizacao, o código do produto será
 	 * utilizado.
 	 */
-	public void atualizar(ProdutoNaoPerecivel produto) {
-
+	@Override
+	public void atualizar(Produto produto) {
 		boolean achou = false;
 		for (int i = 0; i < this.produtos.length; i++) {
 			if (this.produtos[i].equals(produto)) {
-				this.produtos[i] = produto;
+				this.produtos[i] = (ProdutoNaoPerecivel) produto;
 				achou = true;
 				break;
 			}
 		}
-
 		if (!achou) new IllegalArgumentException("Produto não existente");
-		// TODO Implement your code here
-		//throw new UnsupportedOperationException("Not implemented yet!");
 	}
-
+	
 	/**
 	 * Remove produto com determinado codigo, se existir, ou entao retorna um
 	 * erro, caso contrário. Note que a remoção NÃO pode deixar "buracos" no
@@ -103,8 +98,8 @@ public class RepositorioProdutoNaoPerecivelArray {
 	 * 
 	 * @param codigo
 	 */
+	@Override
 	public void remover(int codigo) {
-		
 		int pos = procurarIndice(codigo);
 		if (pos == -1) new IllegalArgumentException("Produto não existente");
 		
@@ -115,7 +110,6 @@ public class RepositorioProdutoNaoPerecivelArray {
 		}
 
 		this.index--;
-		//throw new UnsupportedOperationException("Not implemented yet!");
 	}
 
 	/**
@@ -125,16 +119,18 @@ public class RepositorioProdutoNaoPerecivelArray {
 	 * @param codigo
 	 * @return
 	 */
+	@Override
 	public ProdutoNaoPerecivel procurar(int codigo) {
-
 		int i = this.procurarIndice(codigo);
 		if (i != -1) {
 			return this.produtos[i];
 		} else {
 			return null;
 		}
-		// TODO Implement your code here
-		//throw new UnsupportedOperationException("Not implemented yet!");
+
 	}
+
+
+
 
 }

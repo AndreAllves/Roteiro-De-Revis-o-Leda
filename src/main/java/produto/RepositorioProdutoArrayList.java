@@ -11,7 +11,7 @@ import java.util.ArrayList;
  *
  * @author Adalberto
  */
-public class RepositorioProdutoArrayList {
+public class RepositorioProdutoArrayList implements RepositorioProdutos {
 
 	/**
 	 * A estrutura onde os produtos sao mantidos. Voce nao precisa se preocupar
@@ -40,45 +40,40 @@ public class RepositorioProdutoArrayList {
 	 * @param codigo
 	 * @return
 	 */
-	private int procurarIndice(int codigo) {
-		
+	@Override
+	public int procurarIndice(int codigo) {
 		for (int i = 0; i < this.produtos.size(); i++) {
 			if (this.produtos.get(i).getCodigo() == codigo) {
 				return i;
 			}
 		}
-
+	
 		return -1;
-
-		// TODO Implement your code here
-		//throw new UnsupportedOperationException("Not implemented yet!");
+	
 	}
-
+	
+	
 	/**
 	 * Recebe o codigo e diz se tem produto com esse codigo armazenado
 	 * 
 	 * @param codigo
 	 * @return
 	 */
+	@Override
 	public boolean existe(int codigo) {
 
 		if (procurarIndice(codigo) == -1) return false;
 		return true;
-
-		// TODO Implement your code here
-		//throw new UnsupportedOperationException("Not implemented yet!");
 	}
 
 	/**
 	 * Insere um novo produto (sem se preocupar com duplicatas)
 	 */
+	@Override
 	public void inserir(Produto produto) {
 
 		this.produtos.add(produto);
 		this.index++; 
-
-		// TODO Implement your code here
-		//throw new UnsupportedOperationException("Not implemented yet!");
 	}
 
 	/**
@@ -86,16 +81,13 @@ public class RepositorioProdutoArrayList {
 	 * esteja no array. Note que, para localizacao, o código do produto será
 	 * utilizado.
 	 */
+	@Override
 	public void atualizar(Produto produto) {
 
 		int pos = this.produtos.indexOf(produto);
 		if (pos == -1) new IllegalArgumentException("Produto não existente");
 		this.produtos.add(pos, produto);
 		this.produtos.remove(pos+1);
-
-
-		// TODO Implement your code here
-		//throw new UnsupportedOperationException("Not implemented yet!");
 	}
 
 	/**
@@ -105,14 +97,12 @@ public class RepositorioProdutoArrayList {
 	 * 
 	 * @param codigo
 	 */
+	@Override
 	public void remover(int codigo) {
 
 		int pos = procurarIndice(codigo);
 		if (pos == -1) new IllegalArgumentException("Produto não existente");
 		this.produtos.remove(pos);
-
-		// TODO Implement your code here
-		//throw new UnsupportedOperationException("Not implemented yet!");
 	}
 
 	/**
@@ -122,13 +112,11 @@ public class RepositorioProdutoArrayList {
 	 * @param codigo
 	 * @return
 	 */
+	@Override
 	public Produto procurar(int codigo) {
  
 		int pos = procurarIndice(codigo);
 		if (pos == -1) return null;
 		return this.produtos.get(pos);
-
-		// TODO Implement your code here
-		//throw new UnsupportedOperationException("Not implemented yet!");
 	}
 }
